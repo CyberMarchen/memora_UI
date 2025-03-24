@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memora - 设置</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .settings-section {
+            background-color: white;
+            border-radius: 16px;
+            overflow: hidden;
+            margin-bottom: 24px;
+        }
+        
+        .settings-header {
+            padding: 16px;
+            font-size: 14px;
+            color: var(--text-secondary);
+            font-weight: 500;
+            background-color: rgba(0, 0, 0, 0.02);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .settings-item {
+            display: flex;
+            align-items: center;
+            padding: 16px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .settings-item:last-child {
+            border-bottom: none;
+        }
+        
+        .settings-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 16px;
+            font-size: 16px;
+            color: white;
+        }
+        
+        .icon-green {
+            background-color: var(--primary-color);
+        }
+        
+        .icon-blue {
+            background-color: #2196F3;
+        }
+        
+        .icon-purple {
+            background-color: #9C27B0;
+        }
+        
+        .icon-orange {
+            background-color: #FF9800;
+        }
+        
+        .icon-red {
+            background-color: #F44336;
+        }
+        
+        .settings-info {
+            flex: 1;
+        }
+        
+        .settings-title {
+            font-size: 16px;
+            font-weight: 500;
+            margin-bottom: 4px;
+        }
+        
+        .settings-description {
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+        
+        .settings-action {
+            margin-left: 16px;
+            color: var(--text-tertiary);
+        }
+        
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 50px;
+            height: 30px;
+        }
+        
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 34px;
+        }
+        
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 2px;
+            bottom: 2px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+        
+        input:checked + .slider {
+            background-color: var(--primary-color);
+        }
+        
+        input:checked + .slider:before {
+            transform: translateX(20px);
+        }
+        
+        .user-profile {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .profile-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 16px;
+        }
+        
+        .profile-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .profile-info {
+            flex: 1;
+        }
+        
+        .profile-name {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+        
+        .profile-email {
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+        
+        .profile-action {
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+        
+        .version-info {
+            text-align: center;
+            padding: 16px;
+            font-size: 12px;
+            color: var(--text-tertiary);
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <!-- iOS 状态栏 -->
+    <div class="ios-status-bar">
+        <div class="time">9:41</div>
+        <div class="status-icons">
+            <i class="fas fa-signal"></i>
+            <i class="fas fa-wifi"></i>
+            <i class="fas fa-battery-full"></i>
+        </div>
+    </div>
+
+    <!-- 主内容区 -->
+    <div class="ios-content">
+        <!-- 顶部导航 -->
+        <div class="flex items-center justify-between py-4">
+            <div class="w-8"></div> <!-- 占位，保持标题居中 -->
+            <h1 class="text-lg font-semibold">设置</h1>
+            <div class="w-8"></div> <!-- 占位，保持标题居中 -->
+        </div>
+
+        <!-- 用户信息 -->
+        <div class="settings-section">
+            <div class="user-profile">
+                <div class="profile-avatar">
+                    <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="用户头像">
+                </div>
+                <div class="profile-info">
+                    <div class="profile-name">李小明</div>
+                    <div class="profile-email">xiaoming@example.com</div>
+                </div>
+                <div class="profile-action">
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- 记忆设置 -->
+        <div class="settings-section">
+            <div class="settings-header">记忆设置</div>
+            
+            <div class="settings-item">
+                <div class="settings-icon icon-green">
+                    <i class="fas fa-brain"></i>
+                </div>
+                <div class="settings-info">
+                    <div class="settings-title">默认记忆方法</div>
+                    <div class="settings-description">管理你偏好的记忆方法</div>
+                </div>
+                <div class="settings-action">
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+            </div>
+            
+            <div class="settings-item">
+                <div class="settings-icon icon-blue">
+                    <i class="fas fa-clock"></i>
+                </div>
+                <div class="settings-info">
+                    <div class="settings-title">记忆提醒</div>
+                    <div class="settings-description">设置提醒时间和频率</div>
+                </div>
+                <div class="settings-action">
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+            </div>
+            
+            <div class="settings-item">
+                <div class="settings-icon icon-purple">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <div class="settings-info">
+                    <div class="settings-title">难度系数</div>
+                    <div class="settings-description">调整AI生成记忆方案的难度</div>
+                </div>
+                <div class="settings-action">
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- 应用设置 -->
+        <div class="settings-section">
+            <div class="settings-header">应用设置</div>
+            
+            <div class="settings-item">
+                <div class="settings-icon icon-orange">
+                    <i class="fas fa-bell"></i>
+                </div>
+                <div class="settings-info">
+                    <div class="settings-title">通知设置</div>
+                    <div class="settings-description">自定义应用推送通知</div>
+                </div>
+                <div class="settings-action">
+                    <label class="switch">
+                        <input type="checkbox" checked>
+                        <span class="slider"></span>
+                    </label>
+                </div>
+            </div>
+            
+            <div class="settings-item">
+                <div class="settings-icon icon-blue">
+                    <i class="fas fa-cloud"></i>
+                </div>
+                <div class="settings-info">
+                    <div class="settings-title">云同步</div>
+                    <div class="settings-description">在多设备间同步数据</div>
+                </div>
+                <div class="settings-action">
+                    <label class="switch">
+                        <input type="checkbox" checked>
+                        <span class="slider"></span>
+                    </label>
+                </div>
+            </div>
+            
+            <div class="settings-item">
+                <div class="settings-icon icon-green">
+                    <i class="fas fa-palette"></i>
+                </div>
+                <div class="settings-info">
+                    <div class="settings-title">外观</div>
+                    <div class="settings-description">深色模式和主题选择</div>
+                </div>
+                <div class="settings-action">
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- 其他设置 -->
+        <div class="settings-section">
+            <div class="settings-item">
+                <div class="settings-icon icon-blue">
+                    <i class="fas fa-question-circle"></i>
+                </div>
+                <div class="settings-info">
+                    <div class="settings-title">帮助与反馈</div>
+                </div>
+                <div class="settings-action">
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+            </div>
+            
+            <div class="settings-item">
+                <div class="settings-icon icon-blue">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <div class="settings-info">
+                    <div class="settings-title">隐私政策</div>
+                </div>
+                <div class="settings-action">
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+            </div>
+            
+            <div class="settings-item">
+                <div class="settings-icon icon-red">
+                    <i class="fas fa-sign-out-alt"></i>
+                </div>
+                <div class="settings-info">
+                    <div class="settings-title">登出</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 版本信息 -->
+        <div class="version-info">
+            Memora 版本 1.0.0 (Build 2023051201)
+        </div>
+    </div>
+
+    <!-- iOS 底部导航栏 -->
+    <div class="ios-tab-bar">
+        <div class="tab-item">
+            <i class="fas fa-home"></i>
+            <span>首页</span>
+        </div>
+        <div class="tab-item">
+            <i class="fas fa-layer-group"></i>
+            <span>卡片</span>
+        </div>
+        <div class="tab-item">
+            <i class="fas fa-plus-circle"></i>
+            <span>创建</span>
+        </div>
+        <div class="tab-item active">
+            <i class="fas fa-cog"></i>
+            <span>设置</span>
+        </div>
+    </div>
+</body>
+</html> 

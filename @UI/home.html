@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memora - 首页</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gray-100">
+    <!-- iOS 状态栏 -->
+    <div class="ios-status-bar">
+        <div class="time">9:41</div>
+        <div class="status-icons">
+            <i class="fas fa-signal"></i>
+            <i class="fas fa-wifi"></i>
+            <i class="fas fa-battery-full"></i>
+        </div>
+    </div>
+
+    <!-- 主内容区 -->
+    <div class="ios-content">
+        <!-- 欢迎标语 -->
+        <div class="pt-4 pb-6">
+            <h1 class="text-2xl font-bold">嗨，开始记忆！</h1>
+            <p class="text-gray-500 text-sm mt-1">今天是星期一，记忆效率最佳时间</p>
+        </div>
+
+        <!-- 处理任务进度区 -->
+        <div class="mb-6">
+            <div class="progress-card">
+                <div class="progress-icon">
+                    <i class="fas fa-brain fa-2x pulse-animation"></i>
+                </div>
+                <div class="progress-info">
+                    <div class="progress-title">处理中</div>
+                    <div class="progress-subtitle">AI记忆方案生成</div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 60%"></div>
+                    </div>
+                    <div class="progress-action">取消</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 知识卡片区 -->
+        <div>
+            <div class="flex justify-between items-center mb-4">
+                <h2 class="text-lg font-semibold">我的记忆卡片</h2>
+                <span class="text-primary-500 text-sm">查看全部</span>
+            </div>
+
+            <div class="masonry-grid">
+                <!-- 卡片1 -->
+                <div class="knowledge-card ios-interactive">
+                    <span class="knowledge-card-tag">历史</span>
+                    <h3 class="knowledge-card-title">中国古代王朝年表</h3>
+                    <p class="knowledge-card-summary">包含夏商周、秦汉、三国、晋、南北朝、隋唐、五代十国、宋元明清等各朝代年份记忆方法。</p>
+                    <div class="knowledge-card-footer">
+                        <span class="knowledge-card-timestamp">2分钟前</span>
+                        <span class="knowledge-card-menu"><i class="fas fa-ellipsis-v"></i></span>
+                    </div>
+                </div>
+
+                <!-- 卡片2 -->
+                <div class="knowledge-card ios-interactive">
+                    <span class="knowledge-card-tag">英语</span>
+                    <h3 class="knowledge-card-title">TOEFL核心词汇</h3>
+                    <p class="knowledge-card-summary">高频词根关联记忆法，将单词按语义分组，建立记忆树状图谱。</p>
+                    <div class="knowledge-card-footer">
+                        <span class="knowledge-card-timestamp">昨天</span>
+                        <span class="knowledge-card-menu"><i class="fas fa-ellipsis-v"></i></span>
+                    </div>
+                </div>
+
+                <!-- 卡片3 -->
+                <div class="knowledge-card ios-interactive">
+                    <span class="knowledge-card-tag">生物</span>
+                    <h3 class="knowledge-card-title">人体解剖学名词</h3>
+                    <p class="knowledge-card-summary">骨骼、肌肉、神经系统等人体各系统专业术语的记忆方案，包含图像关联记忆法。</p>
+                    <div class="knowledge-card-footer">
+                        <span class="knowledge-card-timestamp">3天前</span>
+                        <span class="knowledge-card-menu"><i class="fas fa-ellipsis-v"></i></span>
+                    </div>
+                </div>
+
+                <!-- 卡片4 -->
+                <div class="knowledge-card ios-interactive">
+                    <span class="knowledge-card-tag">化学</span>
+                    <h3 class="knowledge-card-title">元素周期表</h3>
+                    <p class="knowledge-card-summary">118种元素符号、原子量、价态的快速记忆方法，配合口诀和元素性质联想。</p>
+                    <div class="knowledge-card-footer">
+                        <span class="knowledge-card-timestamp">上周</span>
+                        <span class="knowledge-card-menu"><i class="fas fa-ellipsis-v"></i></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- iOS 底部导航栏 -->
+    <div class="ios-tab-bar">
+        <div class="tab-item active">
+            <i class="fas fa-home"></i>
+            <span>首页</span>
+        </div>
+        <div class="tab-item">
+            <i class="fas fa-layer-group"></i>
+            <span>卡片</span>
+        </div>
+        <div class="tab-item">
+            <i class="fas fa-plus-circle"></i>
+            <span>创建</span>
+        </div>
+        <div class="tab-item">
+            <i class="fas fa-cog"></i>
+            <span>设置</span>
+        </div>
+    </div>
+
+    <script>
+        // 进度条动画
+        let progress = 60;
+        const progressFill = document.querySelector('.progress-fill');
+        
+        const progressInterval = setInterval(() => {
+            if (progress < 100) {
+                progress += 1;
+                progressFill.style.width = `${progress}%`;
+            } else {
+                clearInterval(progressInterval);
+            }
+        }, 500);
+        
+        // 卡片交互效果
+        document.querySelectorAll('.knowledge-card').forEach(card => {
+            card.addEventListener('click', () => {
+                // 模拟跳转到详情页面
+                console.log('打开卡片详情');
+            });
+        });
+    </script>
+</body>
+</html> 
